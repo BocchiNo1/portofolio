@@ -1,0 +1,495 @@
+/*Palet Warna & Variabel (Dominan Kuning #E5A93C & Putih)*/
+:root {
+    --bg-color: #faf9f6;
+    --text-color: #262626;
+    --text-muted: #595959;
+    --primary-color: #E5A93C;
+    --primary-hover: #cf9227;
+    --primary-light: rgba(229, 169, 60, 0.12);
+    --card-bg: #ffffff;
+    --border-color: #f0e6d2;
+    --modal-overlay: rgba(26, 22, 14, 0.7);
+    --shadow: 0 4px 12px rgba(229, 169, 60, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+    --card-shadow: 0 12px 24px -4px rgba(229, 169, 60, 0.15), 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+/*Interaksi JS 1: Mode Gelap (Aksen Kuning Emas #E5A93C)*/
+body.dark-mode {
+    --bg-color: #171511;
+    --text-color: #faf8f5;
+    --text-muted: #b8b1a4;
+    --primary-color: #E5A93C;
+    --primary-hover: #f0bc59;
+    --primary-light: rgba(229, 169, 60, 0.18);
+    --card-bg: rgba(35, 32, 26, 0.94);
+    --border-color: #383328;
+    --modal-overlay: rgba(0, 0, 0, 0.85);
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --card-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.6), 0 0 15px rgba(229, 169, 60, 0.12);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/*Header & Navigasi (Flexbox)*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: var(--shadow);
+}
+
+body.dark-mode header {
+    background-color: rgba(35, 32, 26, 0.92);
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: -0.5px;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+header nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+header nav a:hover {
+    color: var(--primary-color);
+}
+
+/*Interaksi Button: Toggle Dark Mode*/
+#theme-toggle {
+    padding: 8px 14px;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    transition: all 0.2s ease;
+}
+
+#theme-toggle:hover {
+    background-color: var(--primary-color);
+    color: #1a1a1a;
+    border-color: var(--primary-color);
+    font-weight: 700;
+}
+
+/*Layout Konten Utama (Semantik <main>)*/
+main {
+    padding: 2.5rem 1.5rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+section {
+    margin-bottom: 3.5rem;
+    scroll-margin-top: 90px;
+}
+
+/*Hero Section*/
+.hero {
+    text-align: center;
+    padding: 2.75rem 1.5rem;
+    background: linear-gradient(135deg, rgba(229, 169, 60, 0.16) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border-radius: 16px;
+    border: 1.5px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(135deg, rgba(229, 169, 60, 0.15) 0%, rgba(35, 32, 26, 0.95) 100%);
+    border-color: var(--border-color);
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/*Section Title*/
+h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 0.75rem;
+    color: var(--text-color);
+}
+
+/*Galeri Mockup Smartphone EchoDeck (CSS Grid)*/
+.section-subtitle {
+    color: var(--text-muted);
+    margin: -0.5rem 0 1.75rem 0;
+    font-size: 0.95rem;
+}
+
+.mockup-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.mockup-card {
+    background-color: var(--card-bg);
+    border: 1.5px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.25rem 1rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.mockup-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow);
+    border-color: var(--primary-color);
+}
+
+/*Smartphone Frame*/
+.phone-frame {
+    width: 175px;
+    height: 355px;
+    background-color: #1a1a1a;
+    border: 6px solid #1a1a1a;
+    border-radius: 30px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.85rem;
+}
+
+.phone-screen-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 22px;
+}
+
+.phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 46px;
+    height: 9px;
+    background-color: #1a1a1a;
+    border-radius: 0 0 7px 7px;
+    z-index: 10;
+}
+
+/*Caption*/
+.mockup-caption {
+    text-align: center;
+}
+
+.mockup-caption h4 {
+    margin: 0 0 2px 0;
+    font-size: 0.92rem;
+    color: var(--text-color);
+}
+
+.mockup-caption p {
+    margin: 0;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 1.75rem;
+    border-radius: 12px;
+    border: 1.5px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow);
+    border-color: var(--primary-color);
+}
+
+.card-badge {
+    align-self: flex-start;
+    background-color: var(--primary-light);
+    color: #b87b14;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(229, 169, 60, 0.35);
+    margin-bottom: 0.75rem;
+}
+
+body.dark-mode .card-badge {
+    color: #E5A93C;
+}
+
+.card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.35rem;
+    color: var(--text-color);
+}
+
+.card p {
+    color: var(--text-muted);
+    flex-grow: 1;
+    margin-bottom: 1.25rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #1a1a1a;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(229, 169, 60, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(229, 169, 60, 0.4);
+}
+
+/*Interaksi JS 2: Modal Pop-up*/
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-overlay);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.modal.show {
+    display: flex;
+    animation: modalFadeIn 0.25s ease-out;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 2rem;
+    border-radius: 16px;
+    max-width: 540px;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 100%;
+    position: relative;
+    border: 2px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    animation: modalSlideUp 0.25s ease-out;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.tag {
+    background-color: var(--primary-light);
+    color: #b87b14;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(229, 169, 60, 0.35);
+}
+
+body.dark-mode .tag {
+    color: #E5A93C;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: var(--primary-color);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.modal-tagline {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+.modal-body h4 {
+    margin: 1.25rem 0 0.4rem 0;
+    font-size: 1.05rem;
+    color: var(--text-color);
+}
+
+.modal-body p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.modal-body ul {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.25rem;
+    color: var(--text-muted);
+}
+
+.modal-body li {
+    margin-bottom: 0.35rem;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/*Section Kontak*/
+#kontak {
+    background-color: var(--card-bg);
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+}
+
+#kontak p {
+    font-size: 1.05rem;
+    margin: 0.5rem 0;
+    color: var(--text-muted);
+}
+
+#kontak p strong {
+    color: var(--text-color);
+}
+
+/*Footer*/
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border-top: 2px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/*Responsivitas (Mobile < 768px)*/
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    header nav ul {
+        gap: 1rem;
+    }
+
+    main {
+        padding: 1.5rem 1rem;
+    }
+
+    section {
+        scroll-margin-top: 135px;
+    }
+
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+}

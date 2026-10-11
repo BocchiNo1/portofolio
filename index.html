@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Pribadi | Oktavian Ramadhani</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Oktavian Ramadhani</div>
+        <nav>
+            <ul>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#proyek">Proyek</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+        <!-- Interaksi JS 1: Toggle Dark Mode -->
+        <button id="theme-toggle">🌙</button>
+    </header>
+
+    <main>
+        <section id="tentang" class="hero">
+            <h1>Halo, Saya Oktavian Ramadhani</h1>
+            <p>Mahasiswa Informatika Universitas Teknologi Yogyakarta (UTY) yang berfokus pada pengembangan aplikasi
+                mobile & web.</p>
+        </section>
+
+        <section id="proyek">
+            <h2>Galeri Desain EchoDeck</h2>
+            <p class="section-subtitle">Mockup antarmuka aplikasi hasil perancangan UI/UX Figma dan pengembangan Flutter
+                SDK:</p>
+
+            <div class="mockup-gallery">
+                <div class="mockup-card">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <img src="loading.png" alt="EchoDeck Splash Screen" class="phone-screen-img">
+                    </div>
+                    <div class="mockup-caption">
+                        <h4>1. Splash Screen</h4>
+                        <p>Branding khas kuning <code>#E5A93C</code> &amp; logo Pac-Man.</p>
+                    </div>
+                </div>
+
+                <div class="mockup-card">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <img src="page.png" alt="EchoDeck Halaman Beranda" class="phone-screen-img">
+                    </div>
+                    <div class="mockup-caption">
+                        <h4>2. Halaman Beranda</h4>
+                        <p>Grid soundboard 12 audio efek dengan navigasi bawah.</p>
+                    </div>
+                </div>
+
+                <div class="mockup-card">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <img src="Library.png" alt="EchoDeck Halaman Library" class="phone-screen-img">
+                    </div>
+                    <div class="mockup-caption">
+                        <h4>3. Halaman Library</h4>
+                        <p>Koleksi audio kustom dan tombol cepat <em>+ TAMBAH</em>.</p>
+                    </div>
+                </div>
+
+                <div class="mockup-card">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <img src="Unggah.png" alt="EchoDeck Modal Unggah Suara" class="phone-screen-img">
+                    </div>
+                    <div class="mockup-caption">
+                        <h4>4. Modal Unggah Suara</h4>
+                        <p>Pop-up dialog input audio kustom berformat MP3.</p>
+                    </div>
+                </div>
+            </div>
+
+            <article class="card">
+                <div class="card-badge">Flutter &amp; Figma</div>
+                <h3>EchoDeck Mobile Soundboard</h3>
+                <p>Aplikasi mobile <em>interactive soundboard</em> dengan fitur <strong>one-tap playback</strong>
+                    latensi rendah (&lt; 100ms), kustomisasi audio MP3, dan manajemen pustaka suara untuk content
+                    creator &amp; live streamer.</p>
+                <!-- Interaksi JS 2: Tombol Buka Modal -->
+                <button id="open-modal-btn" class="btn-primary">Lihat Detail Spesifikasi EchoDeck</button>
+            </article>
+        </section>
+
+        <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-content">
+                <span class="close-btn" id="close-modal-btn" aria-label="Tutup">&times;</span>
+                <div class="modal-header">
+                    <h3 id="modal-title">EchoDeck Mobile Soundboard</h3>
+                    <p class="modal-tagline">Pengembangan Aplikasi Mobile (RPL) - Informatika UTY</p>
+                </div>
+
+                <div class="modal-body">
+                    <h4>Ringkasan &amp; Visi Produk</h4>
+                    <p>EchoDeck adalah aplikasi hiburan &amp; alat bantu audio interaktif beridentitas visual
+                        oranye-hitam.
+                        Dirancang untuk pemutaran efek suara instan bagi pengguna umum, content creator, dan live
+                        streamer.</p>
+
+                    <h4>Tech Stack &amp; Arsitektur</h4>
+                    <div class="tech-tags">
+                        <span class="tag">Flutter SDK</span>
+                        <span class="tag">Figma UI/UX</span>
+                    </div>
+
+                    <h4>Fitur Utama</h4>
+                    <ul>
+                        <li><strong>One-Tap Instant Playback:</strong> Latensi rendah (&lt; 100 ms) dengan mekanisme
+                            <em>pre-loading buffer RAM</em>.
+                        </li>
+                        <li><strong>Preset Audio Bawaan:</strong> Bajaj Bajuri, Ba Dum Tss, Cricket, Golf Clap, dan efek
+                            populer lainnya.</li>
+                        <li><strong>Form Modal Unggah MP3:</strong> Validasi ketat format berkas <code>.mp3</code>,
+                            batas ukuran &le; 5 MB, dan judul maks 30 karakter.</li>
+                        <li><strong>Library &amp; Floating Action Button (FAB):</strong> Manajemen direktori audio
+                            kustom
+                            dengan tombol aksi cepat.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section id="kontak">
+            <h2>Hubungi Saya</h2>
+            <p>Silakan hubungi saya melalui kontak berikut:</p>
+            <p><strong>Email:</strong> oktabismillahamim@gmail.com</p>
+            <p><strong>WhatsApp:</strong> 0896-8839-4953</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Oktavian Ramadhani (NIM: 5250411212) | Informatika - Universitas Teknologi Yogyakarta</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
